@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+        <video controls>
+            <source src="{{ url_for('uploads/'+uploadfilename)}}" type="video/mp4">
+            <source src="{{ url_for('uploads/'+uploadfilename)}}" type="video/webm">
+            <source src="{{ url_for('uploads/'+uploadfilename)}}" type="video/ogg">
+            Your browser does not support HTML5 video.
+          </video> 
+          <style> 
+            video{
+              width: 100vw;
+              height: 100vh;
+              object-fit: cover;
+              top: 0;
+              left: 0;
+            }
+          </style>      
+    {% for i in imagelist %}
+    <div class="row-fluid"></div>
+    <div class="img-responsive inline span2 p-10"><img src="{{ url_for('static/img/'+uploadfilename +'/'', filename=i)}}" alt="Responsive image"></div>
+    {%i++%}
+    <div class="img-responsive inline span2 p-10"><img src="{{ url_for('static/img/'+uploadfilename +'/'', filename=i)}}" alt="Responsive image"></div>
+    {%i++%}
+    <div class="img-responsive inline span2 p-10"><img src="{{ url_for('static/img/'+uploadfilename +'/'', filename=i)}}" alt="Responsive image"></div>
+    <br/>
+    </div>
+    {% endfor %}
+</html>
