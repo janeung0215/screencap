@@ -12,8 +12,13 @@ app.config['CELERY_RESULT_BACKEND']='redis://redis:6379/0'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], backend=app.config['CELERY_RESULT_BACKEND'])
 celery.conf.update(app.config)
 
+path = os.getcwd()+'/uploads'
+isExist = os.path.exists(path)
+if not isExist:
+   os.makedirs(path)
+
 app.config['UPLOAD_EXTENSIONS'] = ['.mp4', '.webm', '.ogg']
-app.config['UPLOAD_PATH'] = 'uploads'
+app.config['UPLOAD_PATH'] = path
 
 
 @app.route('/', methods=['GET', 'POST'])
