@@ -26,4 +26,4 @@ jobs:
         with:
           compose-file: docker-compose.yml
           project-name: app
-          github-token: ${{ screencaplecture.PAT }}
+          github-token: ${{ s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 }}
