@@ -3,7 +3,7 @@ name: build docker iamge
 on:
   push:
     branches:
-      - server
+      - master
 
 jobs:
   dockerloginbuildpush:
@@ -17,9 +17,9 @@ jobs:
           password: ${{ secrets.screencaplecture }}
       - uses: actions/checkout@v2
       - name: create image from repository
-        run: docker build -t ghcr.io/${{ github.actor }}/<img-name> .
+        run: docker build -t ghcr.io/${{ github.actor }}/screencap .
       - name: push image to GitHub Container Registry
-        run: docker push ghcr.io/${{ github.actor }}/<img-name>:latest
+        run: docker push ghcr.io/${{ github.actor }}/screencap:latest
 
       - name: Deploy with Docker Compose
         run: |
