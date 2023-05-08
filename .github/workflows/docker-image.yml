@@ -20,10 +20,11 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: your-docker-repo-name:latest
-
-      - name: Deploy Docker Compose
-        uses: docker/compose-action@v2
+      - name: Docker Compose Action
+        uses: isbang/compose-action@v1.4.1
         with:
-          compose-file: ./docker-compose.yml
-          project-name: app
-          github-token: ${{ secrets.PAT }}
+          compose-file: "./docker-compose.yml"
+        env:
+          CUSTOM_VARIABLE: "app"
+        
+
