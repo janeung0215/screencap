@@ -26,7 +26,7 @@ jobs:
         with:
           compose-file: docker-compose.yml
           project-name: your-project-name
-          github-token: ${{ secrets.PAT }}
+          github-token: ${{ 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 }}
 
         
 
