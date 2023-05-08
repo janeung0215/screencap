@@ -19,7 +19,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: screencap:latest
+          tags: |
+            janeung0215/screencap:${{ github.sha }}
+            janeung0215/screencap:latest
       - name: Docker Compose Action
         uses: isbang/compose-action@v1.4.1
         with:
