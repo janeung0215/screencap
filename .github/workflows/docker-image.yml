@@ -25,5 +25,5 @@ jobs:
         uses: docker/compose-action@v2
         with:
           compose-file: docker-compose.yml
-          project-name: app
+          project-name: screencap
           github-token: ${{ s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 }}
