@@ -37,6 +37,6 @@ jobs:
     - name: Deploy with Docker Compose
       run: |
        docker-compose pull
-       docker-compose up -            
+       docker-compose up -d            
        working-directory: ./
 
