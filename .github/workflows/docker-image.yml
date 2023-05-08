@@ -19,7 +19,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: your-docker-repo-name:latest
+          tags: screencap:latest
       - name: Docker Compose Action
         uses: isbang/compose-action@v1.4.1
         with:
