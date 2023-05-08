@@ -2,7 +2,7 @@ name: Server Build & Push
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'server/**'
       - 'shared/**'
