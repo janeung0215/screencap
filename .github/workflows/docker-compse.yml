@@ -6,7 +6,7 @@ on:
     paths:
       - 'server/**'
       - 'shared/**'
-      - docker-compose.prod.yml
+      - docker-compose.yml
       - Dockerfile
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
           echo "${{ secrets.SERVER_ENV_PROD }}" > .env
           cat .env
       - name: Build image
-        run: docker compose -f docker-compose.prod.yml build
+        run: docker compose -f docker-compose.yml build
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
