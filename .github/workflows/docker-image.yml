@@ -1,25 +1,33 @@
-   name: Build and Deploy
+name: Build and Push
 
-   on:
-     push:
-       branches: [master]
+on:
+  push:
+    branches: [main]
 
-   jobs:
-     build:
-       runs-on: ubuntu-latest
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
 
-       steps:
-         - name: Checkout
-           uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-         - name: Build and push Docker image
-           uses: docker/build-push-action@v3
-           with:
-             context: ./
-             push: true
-             tags: ghcr.io/janeung0215/screencap:latest
+      - name: Build and tag Docker image
+        run: |
+          docker build -t ghcr.io/janeung0215/screencap:latest .
+          docker tag ghcr.io/janeung0215/<repository>:latest ghcr.io/janeung0215/sreencap:<tag>
 
-         - name: Deploy with Docker Compose
-           run: |
-             docker-compose pull
-             docker-compose up -d
+      - name: Login to GitHub Container Registry
+        run: docker login ghcr.io -u janeung0215 -p ${{ secrets.screencaplecture }}
+
+      - name: Push Docker image to GitHub Container Registry
+        run: docker push ghcr.io/janeung0215/screencap:<tag>
+        env:
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.screencaplecture }}
+
+
+      - name: Deploy with Docker Compose
+        run: |
+          docker-compose pull
+          docker-compose up -d
