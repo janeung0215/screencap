@@ -18,5 +18,6 @@ jobs:
 
       - name: Deploy with Docker Compose
         run: |
+            cd ../../
             docker-compose pull
             docker-compose up -d
