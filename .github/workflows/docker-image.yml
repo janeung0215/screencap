@@ -15,7 +15,7 @@ jobs:
       - name: Build and tag Docker image
         run: |
           docker build -t ghcr.io/janeung0215/screencap:latest .
-          docker tag ghcr.io/janeung0215/<repository>:latest ghcr.io/janeung0215/sreencap:<tag>
+          docker tag ghcr.io/janeung0215/screencap:latest ghcr.io/janeung0215/sreencap:<tag>
 
       - name: Login to GitHub Container Registry
         run: docker login ghcr.io -u janeung0215 -p ${{ secrets.screencaplecture }}
