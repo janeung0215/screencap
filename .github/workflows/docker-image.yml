@@ -24,6 +24,6 @@ jobs:
       - name: Deploy Docker Compose
         uses: docker/compose-action@v2
         with:
-          compose-file: docker-compose.yml
+          compose-file: ./docker-compose.yml
           project-name: app
           github-token: ${{ secrets.PAT }}
