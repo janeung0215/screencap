@@ -30,7 +30,7 @@ jobs:
     - name: Build and Push Docker Image
       env:
         REGISTRY: ghcr.io
-        OWNER: my-organization-name
+        OWNER: janeung0215
         IMAGE_NAME: ${{ github.repository }}
       uses: docker/build-push-action@v2
       with:
