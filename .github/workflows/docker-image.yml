@@ -21,9 +21,9 @@ jobs:
           push: true
           tags: janeung0215/screencap:latest
 
-      - name: Deploy Docker Compose
-        uses: docker/compose-action@v2
+      - name: Docker Compose Action
+        uses: isbang/compose-action@v1.4.1
         with:
-          compose-file: docker-compose.yml
-          project-name: screencap
-          github-token: ${{ secrets.screencaplecture }}
+          compose-file: "./docker-compose.yml"
+        env:
+          CUSTOM_VARIABLE: "app"
