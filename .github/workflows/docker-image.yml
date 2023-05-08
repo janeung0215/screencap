@@ -25,13 +25,12 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ github.actor }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
-`
 
 
 
-         - name: Deploy with Docker Compose
-           run: |
+      - name: Deploy with Docker Compose
+        run: |
              docker-compose pull
              docker-compose up -d
-           working-directory: ./
+             working-directory: ./
 
