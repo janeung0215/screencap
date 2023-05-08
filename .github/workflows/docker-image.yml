@@ -3,7 +3,7 @@ name: Deploy Docker
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -19,14 +19,14 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            janeung0215/screencap:${{ github.sha }}
-            janeung0215/screencap:latest
-      - name: Docker Compose Action
-        uses: isbang/compose-action@v1.4.1
+          tags: your-docker-repo-name:latest
+
+      - name: Deploy Docker Compose
+        uses: docker/compose-action@v2
         with:
-          compose-file: "./docker-compose.yml"
-        env:
-          CUSTOM_VARIABLE: "app"
+          compose-file: docker-compose.yml
+          project-name: your-project-name
+          github-token: ${{ secrets.PAT }}
+
         
 
