@@ -18,7 +18,7 @@ jobs:
           docker tag ghcr.io/janeung0215/screencap:latest ghcr.io/janeung0215/screencap:latest
 
       - name: Login to GitHub Container Registry
-        run: docker login ghcr.io -u janeung0215 -p ${{ secrets.DOCKER_TOKEN }}
+        run: docker login ghcr.io -u janeung0215 --password ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/janeung0215/screencap:lastest
