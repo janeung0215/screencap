@@ -1,2 +1,0 @@
-- name: Deploy docker-compose
-  uses: hasnat/deploy-docker-compose@v0.1-alpha
