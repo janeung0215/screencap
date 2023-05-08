@@ -18,13 +18,13 @@ jobs:
           docker tag ghcr.io/janeung0215/screencap:latest ghcr.io/janeung0215/sreencap:latest
 
       - name: Login to GitHub Container Registry
-        run: docker login ghcr.io -u janeung0215 -p ${{ secrets.screencaplecture }}
+        run: docker login ghcr.io -u janeung0215 -p ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/janeung0215/screencap:latest
         env:
           DOCKER_USERNAME: ${{ github.actor }}
-          DOCKER_PASSWORD: ${{ secrets.screencaplecture }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
 
 
       - name: Deploy with Docker Compose
