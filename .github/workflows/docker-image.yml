@@ -19,7 +19,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: your-docker-repo-name:latest
+          tags: janeung0215/screencap:latest
 
       - name: Deploy Docker Compose
         uses: docker/compose-action@v2
