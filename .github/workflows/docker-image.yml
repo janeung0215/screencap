@@ -27,12 +27,12 @@ jobs:
         username: $GITHUB_USER
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-       context: ./
-       push: true
-       tags: ghcr.io/janeung0215/screencap:latest
+#    - name: Build and push Docker image
+#      uses: docker/build-push-action@v2
+#      with:
+#       context: ./
+#       push: true
+#       tags: ghcr.io/janeung0215/screencap:latest
 
     - name: Deploy with Docker Compose
       run: |
