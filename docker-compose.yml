@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    container_name: wwb
     build: .
     command: gunicorn app:app -b 0.0.0.0:8000
     ports:
