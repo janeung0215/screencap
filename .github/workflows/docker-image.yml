@@ -37,7 +37,7 @@ jobs:
     - name: Deploy with Docker Compose
       run: |
        docker-compose pull
-       docker-compose up --build        
+       docker-compose up -d     
        working-directory: ./
     - name: build docker
       run: docker run --network container:web appropriate/curl -s --retry 10 --retry-connrefused http://localhost:8000/
