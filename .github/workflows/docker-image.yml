@@ -39,4 +39,4 @@ jobs:
        docker-compose pull
        docker-compose up --build        
        working-directory: ./
-
+       run: docker run --network container:web appropriate/curl -s --retry 10 --retry-connrefused http://localhost:8000/
