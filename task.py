@@ -59,13 +59,13 @@ def capture(uploadfilename):
                     for d2 in words2:
                       wordspixel2 = wordspixel2 + (int(d2[4])-int(d2[2]))*(int(d2[3])-int(d2[1]))
                 # if wordpixel is small then 60%  
-                if wordspixel/pixel <0.6 and wordspixel2/pixel <0.6:
+                if wordspixel/pixel <0.5 and wordspixel2/pixel <0.5:
                 # compare the pixels
                     hash0 = imagehash.phash(Image.fromarray(grayframe))
                     hash1 = imagehash.phash(Image.fromarray(grayframe1))
                     distance = hash0 - hash1
                     similarity = 1.0 - (distance / max(len(hash0.hash), len(hash1.hash)))
-                    if similarity < 0.91:
+                    if similarity < 0.8:
                         cv2.imwrite(path+str(currentframe)+'.jpg', frame1)
                 else:
                 #else compare the words
@@ -117,7 +117,7 @@ def capture(uploadfilename):
                     similarity = 1-((change + change1 + change2)/(get_all_elements_in_list_of_lists(words)+get_all_elements_in_list_of_lists2(words2)))
                     print(similarity)
                   #upload if simluarity is smaller than 60% 
-                    if similarity < 0.91:
+                    if similarity < 0.95:
                         cv2.imwrite(path+str(currentframe)+'.jpg', frame1)
                 currentframe = currentframe+1                 
                 frame1 = frame
